@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const intitalState = {
+  id:"",
   avatar: "",
   name: "",
   email: "",
@@ -14,6 +15,7 @@ const userSlice = createSlice({
       state.name = action.payload.name;
       state.avatar = action.payload.avatar || "";
       state.email = action.payload.email;
+      state.id = action.payload.id
     },
     destoryUser: (state, action) => {
       state.avatar = "";

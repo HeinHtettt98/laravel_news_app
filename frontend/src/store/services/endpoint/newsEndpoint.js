@@ -22,6 +22,7 @@ const newsEndpoint = api.injectEndpoints({
         url: `news/${id}`,
         method: "GET",
       }),
+      providesTags: ["News", "User"],
     }),
     delete: builder.mutation({
       query: (arg) => ({
@@ -30,7 +31,21 @@ const newsEndpoint = api.injectEndpoints({
       }),
       invalidatesTags: ["News", "User"],
     }),
+    comment: builder.mutation({
+      query: (arg) => ({
+        url: "comment",
+        method: "POST",
+        body: arg,
+      }),
+      invalidatesTags: ["News", "User"],
+    }),
   }),
 });
 
-export const { useGetNewsQuery, useStoreMutation, useShowQuery, useDeleteMutation } = newsEndpoint;
+export const {
+  useGetNewsQuery,
+  useStoreMutation,
+  useShowQuery,
+  useDeleteMutation,
+  useCommentMutation,
+} = newsEndpoint;

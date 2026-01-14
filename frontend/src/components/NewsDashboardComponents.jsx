@@ -2,8 +2,10 @@ import React from "react";
 import CategoryComponet from "./CategoryComponet";
 import NewsCard from "./NewsCard";
 import PaginationComponent from "./PaginationComponent";
+import { Link, useLocation } from "react-router-dom";
 
 const NewsDashboardComponents = ({isLoading,isError,data,isSuccess}) => {
+  const { pathname, search } = useLocation();
   return (
     <div className=" container mx-auto">
       <div className="mt-20 ">
@@ -64,7 +66,8 @@ const NewsDashboardComponents = ({isLoading,isError,data,isSuccess}) => {
               No news available
             </h2>
             <p className="mt-2 text-gray-500">
-              Please check back later for updates.
+              {pathname == "/user/manage-posts" ? (<Link to={'/create-post'} className="text-blue-500 font-semibold underline">Post some news</Link>) :
+              "Please check back later for updates."}
             </p>
           </div>
         )}

@@ -29,7 +29,6 @@ const NewsCard = ({ image, title, description, id, created_at }) => {
         <h2 className="text-xl font-semibold leading-tight line-clamp-2">
           {title}
         </h2>
-
         <p className="text-gray-600 text-sm line-clamp-3">{description}</p>
         <div className="flex justify-between items-center">
           <div>

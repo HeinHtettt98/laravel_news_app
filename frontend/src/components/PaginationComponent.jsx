@@ -37,7 +37,7 @@ const PaginationComponent = ({ last_page, current_page }) => {
           </li>
           {Array.from({ length: n }, (_, i) => i + 1).map((page) => (
             <li key={page} onClick={() => paginationHandle(page)}>
-              <span className="flex items-center justify-center text-blue-400 font-bold bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading text-sm w-10 h-10 focus:outline-none">
+              <span className={`flex items-center justify-center ${page == current_page ? "text-blue-600 font-bold text-xl": "text-blue-400"} font-bold bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading text-sm w-10 h-10 focus:outline-none`}>
                 {page}
               </span>
             </li>

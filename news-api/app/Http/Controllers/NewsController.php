@@ -65,15 +65,12 @@ class NewsController extends Controller
         }
     }
 
-    function show(News $news)
+    public function show(News $news)
     {
-        try {
-            return response()->json($news, 200);
-        } catch (Throwable $e) {
-            return response()->json([
-                'message' => 'News article not found',
-            ], 404);
-        }
+        return response()->json(
+            $news->load('comments'),
+            200
+        );
     }
 
     function destory(News $news)

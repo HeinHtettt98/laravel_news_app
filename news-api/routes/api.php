@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::delete('/news/{news}', [App\Http\Controllers\NewsController::class, 'dest
 
 //Category Routes
 Route::get('/category', [CategoryController::class, 'index']);
+
+//comment
+Route::post('/comment', [CommentController::class, 'store']);
 
 //User Routes
 Route::post('/user/register', [UserController::class, 'register']);

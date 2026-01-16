@@ -5,7 +5,15 @@ const categoryEndpoint = api.injectEndpoints({
     getCategories: builder.query({
       query: () => "category",
     }),
+    storeCategory: builder.mutation({
+      query: (arg) => ({
+        url: "category",
+        method: "POST",
+        body: arg,
+      }),
+      invalidatesTags: ["News", "User"],
+    }),
   }),
 });
 
-export const { useGetCategoriesQuery } = categoryEndpoint;
+export const { useGetCategoriesQuery, useStoreCategoryMutation } = categoryEndpoint;

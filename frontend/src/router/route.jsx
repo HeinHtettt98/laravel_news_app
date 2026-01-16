@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import UserManagePostPage from "../Page/UserManagePostPage";
 import FourOFour from "./FourOFour";
+import CreateCategoryPage from "../Page/CreateCategoryPage";
 
 const route = () => {
   const { name, photo } = useSelector((state) => state.user);
@@ -25,6 +26,10 @@ const route = () => {
         {
           path: "create-post",
           element: name == "" ? <Navigate to={"/"} /> : <CreateNewsPage />,
+        },
+        {
+          path: "create-category",
+          element: <CreateCategoryPage />,
         },
         {
           path: "news/:id",
